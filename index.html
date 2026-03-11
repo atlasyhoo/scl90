@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health & Self-Discovery App - Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f7;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        header .icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section h2 i {
+            font-size: 1.5rem;
+        }
+
+        .section h3 {
+            color: #555;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .disclaimer i {
+            font-size: 1.5rem;
+            color: #ffc107;
+            margin-top: 0.2rem;
+        }
+
+        .disclaimer strong {
+            color: #856404;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            background: white;
+            margin-top: 2rem;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .faq-item h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item h4 i {
+            font-size: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-info i {
+            color: #667eea;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="icon">
+            <i class="fas fa-brain"></i>
+        </div>
+        <h1>Mental Health & Self-Discovery</h1>
+        <p>Your Personal Guide to Emotional Well-being and Self-Understanding</p>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2><i class="fas fa-info-circle"></i> About the App</h2>
+            <p>Our app is an all-in-one mental health and self-discovery tool designed to help you understand yourself better and monitor your emotional well-being. By integrating professional clinical scales and classic personality models, we provide a comprehensive platform for self-assessment and personal growth.</p>
+
+            <div class="disclaimer">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Important Notice:</strong> All assessment results are for self-reference and educational purposes only. They do not replace professional medical diagnosis or treatment. If you are experiencing mental health concerns, please consult a qualified healthcare professional.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-star"></i> Features</h2>
+
+            <h3>Clinical Mental Health Assessments</h3>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-heartbeat icon"></i>
+                    <h4>SAS (Self-Rating Anxiety Scale)</h4>
+                    <p>Monitor anxiety levels with this widely-used clinical screening tool.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heart icon"></i>
+                    <h4>SDS (Self-Rating Depression Scale)</h4>
+                    <p>Track depressive symptoms and emotional patterns over time.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clipboard-check icon"></i>
+                    <h4>SCL-90</h4>
+                    <p>Comprehensive psychological symptom checklist covering multiple dimensions of mental health.</p>
+                </div>
+            </div>
+
+            <h3>Personality & Career Analysis</h3>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-user-circle icon"></i>
+                    <h4>MBTI</h4>
+                    <p>Discover your personality type and understand your cognitive preferences.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users icon"></i>
+                    <h4>Enneagram</h4>
+                    <p>Explore your core motivations and behavioral patterns.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-briefcase icon"></i>
+                    <h4>Holland Codes</h4>
+                    <p>Identify career paths that align with your interests and strengths.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-cogs"></i> How It Works</h2>
+            <ol class="step-list">
+                <li><strong>Choose an Assessment:</strong> Select from clinical scales or personality models based on your needs.</li>
+                <li><strong>Complete the Questionnaire:</strong> Answer questions honestly for accurate results.</li>
+                <li><strong>Review Your Results:</strong> Get detailed insights and interpretations.</li>
+                <li><strong>Track Progress:</strong> Monitor changes in your emotional well-being over time.</li>
+                <li><strong>Plan Your Path:</strong> Use personality insights to guide career and personal development decisions.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-question-circle"></i> Support</h2>
+
+            <h3>Frequently Asked Questions</h3>
+
+            <div class="faq-item">
+                <h4><i class="fas fa-check-circle"></i> Are the assessments scientifically valid?</h4>
+                <p>Yes, we use established clinical scales (SAS, SDS, SCL-90) and widely-recognized personality models (MBTI, Enneagram, Holland Codes) that have been validated through research and clinical practice.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4><i class="fas fa-user-md"></i> Can I use this app instead of seeing a therapist?</h4>
+                <p>No. This app is designed for self-awareness and monitoring purposes only. It does not replace professional mental health care. If you're experiencing significant distress, please consult a licensed mental health professional.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4><i class="fas fa-calendar-alt"></i> How often should I take the assessments?</h4>
+                <p>For mental health scales (SAS, SDS, SCL-90), we recommend taking them every 2-4 weeks to track changes. Personality assessments can be taken less frequently, as personality traits are relatively stable.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4><i class="fas fa-lock"></i> Is my data private?</h4>
+                <p>Yes, all your assessment data is stored locally on your device and is not shared with third parties.</p>
+            </div>
+
+            <h3>Contact Us</h3>
+            <p>For technical support, feature requests, or general inquiries, please contact us at:</p>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <strong>Email:</strong> <a href="mailto:apple277315540@163.com">apple277315540@163.com</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
+            <p>We are committed to protecting your privacy. All assessment data is stored locally on your device. We do not collect, store, or share your personal information or assessment results with any third parties.</p>
+
+            <h3>Data Collection</h3>
+            <ul>
+                <li><i class="fas fa-mobile-alt"></i> Assessment responses are stored locally on your device</li>
+                <li><i class="fas fa-ban"></i> No personal information is transmitted to our servers</li>
+                <li><i class="fas fa-chart-line"></i> Anonymous usage statistics may be collected to improve app performance</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mental Health & Self-Discovery App. All rights reserved.</p>
+        <p><i class="fas fa-envelope"></i> For support: <a href="mailto:apple277315540@163.com">apple277315540@163.com</a></p>
+    </footer>
+</body>
+</html>
